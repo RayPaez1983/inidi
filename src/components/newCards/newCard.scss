@@ -1,0 +1,76 @@
+.container {
+  background-color: #ffffff;
+  opacity: 1;
+  background-image: radial-gradient(#fa34f08e 1.05px, transparent 1.05px),
+    radial-gradient(#fa34f08e 1.05px, #ffffff 1.05px);
+  background-size: 42px 42px;
+  background-position: 0 0, 21px 21px;
+}
+
+/*ESTILOS DE PRODUCTOS*/
+
+.main {
+  padding: 10px;
+  /*background-color: #ffffff;*/
+  opacity: 1;
+}
+
+.main-tittle {
+  font-size: 30px;
+  color: #df89b5;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.container-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 60px;
+}
+
+.product {
+  /*border: 1px solid #d877e0;*/
+  padding: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+.product__icon {
+  color: #a351e6;
+}
+
+.product__img {
+  width: 86%;
+  height: 93%;
+  position: relative;
+  left: 7%;
+  z-index: -10;
+  border-radius: 10px;
+}
+
+.product:before {
+  content: "New";
+  background-color: rgba(228, 125, 178, 0.664);
+  padding: 10px 20px;
+  width: 50px;
+  position: absolute;
+  transform: rotate(0deg);
+  color: white;
+  z-index: 10;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.product__tittle {
+  text-align: center;
+  color: #a351e6;
+  font: normal normal 400 16px "Futura Std", sans-serif;
+}
+
+.product__price {
+  color: #9922e9;
+  font: normal normal 400 16px "Futura Std", sans-serif;
+  line-height: 30px;
+  text-align: center;
+  position: relative;
+  left: 40%;
+}

@@ -1,13 +1,24 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./navMenu.scss";
 import Header from "../header/header";
 
 const NavMenu = () => {
+  const [sticky, setSticky] = useState(false)
+
+  const navBarSticky = ()=>{
+    if(window.scrollY >= 232){
+      setSticky(true)
+    }else{
+      setSticky(false)
+    }
+  }
+
+  window.addEventListener('scroll', navBarSticky)
   return (
     <Fragment>
       <Header />
-      <nav className="dos">
+      <nav className={sticky ? 'dos activeNav': 'dos'}>
         <div className="wrap">
           <nav className="tres">
             <ul>

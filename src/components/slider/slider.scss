@@ -16,8 +16,8 @@
 
 .right-arrow {
   position: absolute;
-  bottom: 40%;
-  right: 34%;
+  bottom: 30%;
+  right: 25%;
   font-size: 3rem;
   color: rgba(223, 137, 181, 0.719);
   z-index: 10;
@@ -27,8 +27,8 @@
 
 .left-arrow {
   position: absolute;
-  bottom: 40%;
-  left: 34%;
+  bottom: 30%;
+  left: 25%;
   font-size: 3rem;
   color: rgba(223, 137, 181, 0.719);
   z-index: 10;
@@ -46,6 +46,7 @@
   transition-duration: 1s;
 }
 .imageSlider {
+  width: 1050px;
   display: flex;
   margin: 0 auto;
 }

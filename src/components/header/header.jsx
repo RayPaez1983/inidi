@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { BsCartCheck } from "react-icons/bs";
+import { BsCartPlusFill } from "react-icons/bs";
 import "./header.scss";
 
 const Header = () => {
@@ -15,16 +15,17 @@ const Header = () => {
       rgba(191, 217, 254, 0.212) 100%`,
       }}
     >
-      <img src={imageUrl} alt="logoIndi" width="100px" height="100" />
-      <div className="head">
-        <nav className="uno">
+     
+      <div className="head-container">
+        <nav className="head-container_nav">
           <Link to="/">Inicio</Link>
-          <Link to="/sing-in">Ingresar!</Link>
+          <Link to="/sing-in">Ingresar</Link>
           <a href="#">
-            My Car <BsCartCheck />
+            My Car <BsCartPlusFill/>
           </a>
         </nav>
-        <div>
+        <div className="head-container_title">
+           <img src={imageUrl} alt="logoIndi" className="head-container_title_img"/>
           <h1>PIJAMAS</h1>
         </div>
       </div>
