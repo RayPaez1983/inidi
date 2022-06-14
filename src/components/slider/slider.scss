@@ -1,0 +1,51 @@
+.slideContainer {
+  height: 80vh;
+  background-color: #ffffff;
+  opacity: 1;
+  background-image: radial-gradient(#fa34f08e 1.05px, transparent 1.05px),
+    radial-gradient(#fa34f08e 1.05px, #ffffff 1.05px);
+  background-size: 42px 42px;
+  background-position: 0 0, 21px 21px;
+}
+
+.image {
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  bottom: 40%;
+  right: 34%;
+  font-size: 3rem;
+  color: rgba(223, 137, 181, 0.719);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  bottom: 40%;
+  left: 34%;
+  font-size: 3rem;
+  color: rgba(223, 137, 181, 0.719);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 5s ease all;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+}
+.imageSlider {
+  display: flex;
+  margin: 0 auto;
+}

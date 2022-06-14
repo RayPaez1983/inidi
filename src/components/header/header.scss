@@ -1,0 +1,40 @@
+header {
+  background-color: linear-gradient(
+    to top,
+    rgba(223, 137, 181, 0.349) 0%,
+    rgba(191, 217, 254, 0.212) 100%
+  );
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.head {
+  padding: 0;
+  height: 100%;
+  flex-grow: 1;
+  color: #df89b5;
+  display: flex;
+  flex-direction: column;
+  .uno {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    a {
+      text-decoration: none;
+      color: #df89b5;
+      padding-right: 37px;
+      text-align: center;
+    }
+    :hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+h1 {
+  font-size: 85px;
+  margin-left: 636px;
+  letter-spacing: 10px;
+}
