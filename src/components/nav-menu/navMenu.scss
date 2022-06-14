@@ -38,3 +38,7 @@ nav li {
 nav li :hover {
   background-color: #aed6f5;
 }
+.activeNav {
+  position: fixed;
+  top: 0;
+}
