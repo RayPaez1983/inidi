@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./navMenu.scss";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 const NavMenu = () => {
   const [sticky, setSticky] = useState(false)
@@ -46,6 +47,7 @@ const NavMenu = () => {
         </div>
       </nav>
       <Outlet />
+      <Footer/>
     </Fragment>
   );
 };
