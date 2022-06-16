@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="box">
             <h2 className="h2_box">SIGUENOS</h2>
             <div className="red-social">
-                <a href="#" className="instagram"><BsInstagram/> indii_pijamas</a>
-                <a href="#" className="whatsapp"><BsWhatsapp/> Whatsapp 311 7183992</a>
+                <a href="#" className="instagram"><BsInstagram/> indii</a>
+                <a href="#" className="whatsapp"><BsWhatsapp/> Whatsapp 311 7183989</a>
             </div>
         </div>
     </footer>
