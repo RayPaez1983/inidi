@@ -7,7 +7,6 @@ import Family from "./components/routes/home/family";
 import Accessories from "./components/routes/home/accessories";
 import NavMenu from "./components/nav-menu/navMenu";
 import SingIn from "./components/routes/sing-in/singIn";
-import Footer from "./components/footer/footer";
 
 const App = () => {
   return (
