@@ -16,10 +16,15 @@
     width: 25%;
     height: 50px;
     margin-bottom: 20px;
+    padding-left: 10px;
     border-radius: 25px;
     border: 1px solid #fa34f08e;
     &:focus {
       outline: none;
     }
+  }
+  &_buttons {
+    display: flex;
+    justify-content: space-between;
   }
 }
