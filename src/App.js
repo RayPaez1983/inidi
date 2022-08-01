@@ -7,6 +7,7 @@ import Family from "./components/routes/home/family";
 import Accessories from "./components/routes/home/accessories";
 import NavMenu from "./components/nav-menu/navMenu";
 import SingIn from "./components/routes/sing-in/singIn";
+import SingUp from "./components/routes/sing-up/singUp";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="kids" element={<Kids />} />
         <Route path="family" element={<Family />} />
         <Route path="sing-in" element={<SingIn />} />
+        <Route path="sing-up" element={<SingUp />} />
         <Route path="accessories" element={<Accessories />} />
       </Route>
     </Routes>
