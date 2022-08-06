@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentAuth,
@@ -13,11 +14,12 @@ const formFields = {
 };
 
 const SingUpForm = () => {
+  
   const [formState, setFormState] = useState(formFields);
   const { displayName, apellido, email, password, confirmPassword } = formState;
-   const resetFormFields =()=>{
-    setFormState(formFields)
-   } 
+  const resetFormFields = () => {
+    setFormState(formFields);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -26,14 +28,17 @@ const SingUpForm = () => {
     }
 
     try {
-      const {user} = await createAuthUserWithEmailAndPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
       await createUserDocumentAuth(user, { displayName });
-   
-      resetFormFields()
+
+      resetFormFields();
     } catch (error) {
-        if (error.code === 'auth/email-already-in-use') {
-            alert('Usuario ya cuenta con un perfil')
-        }
+      if (error.code === "auth/email-already-in-use") {
+        alert("Usuario ya cuenta con un perfil");
+      }
       console.log(error, "error");
     }
   };

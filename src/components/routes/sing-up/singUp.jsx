@@ -5,6 +5,7 @@ import {
 
 } from "../../../utils/firebase/firebase.utils";
 import SingUpForm from '../../sign-up/singUpForm'
+import {  Link } from "react-router-dom";
 
 const SingUp = () => {
     const logInWithGoogle = async () => {
@@ -19,6 +20,8 @@ const SingUp = () => {
       <h1>Welcome to Indii</h1>
       <button onClick={logInWithGoogle}>sing in with google</button>
       <SingUpForm/>
+      <h2>Si ya tienes una cuenta puedes hacer logging aqui</h2>
+      <button><Link to="/sing-in">Ingresa</Link></button>
     </div>
   );
 };
