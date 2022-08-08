@@ -21,15 +21,15 @@ const SingIn = () => {
 
   return (
     <div>
-      <h1>Welcome to Indii</h1>
+      <h1>Bienvenidos a Indii</h1>
       <SingInForm/>
         
-        <div className="container-singIn_buttons">
-        <button><Link to="/sing-up">Sing Up</Link></button>
-        <button><Link to="/sing-in">Sign In</Link></button>
+       
+        <h2>No Tienes Una Cuenta</h2>
+        <button><Link to="/sing-up">Crea Una!</Link></button>
        
         
-        </div>
+   
     
       
      
