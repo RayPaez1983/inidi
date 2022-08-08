@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user.context";
 import {
   singInWithGooglePopup,
@@ -14,6 +14,7 @@ const formFields = {
 };
 
 const SingInForm = () => {
+  let navigate = useNavigate();
   const [formState, setFormState] = useState(formFields);
   const { email, password } = formState;
   const {setCurrentUser, currentUser} = useContext(UserContext)
@@ -34,6 +35,7 @@ const SingInForm = () => {
     
       setCurrentUser(user)
       resetFormFields();
+      navigate("/");
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password': 
@@ -86,7 +88,7 @@ const SingInForm = () => {
               Cerrar Sesion
             </span>
           ) : (
-             <button type="submit"> <Link to={currentUser ?  '/':'/sing-in'}>Iniciar Sesion</Link></button>
+             <button type="submit"> Iniciar Sesion</button>
           )}
        
         <button onClick={logInWithGoogle}>
