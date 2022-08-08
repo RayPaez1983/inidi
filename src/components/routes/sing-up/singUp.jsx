@@ -21,7 +21,7 @@ const SingUp = () => {
       <button onClick={logInWithGoogle}>sing in with google</button>
       <SingUpForm/>
       <h2>Si ya tienes una cuenta puedes hacer logging aqui</h2>
-      <button><Link to="/sing-in">Ingresa</Link></button>
+      <button><Link to="/sing-in">Inicia Secion</Link></button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import { UserContext } from "../../context/user.context";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentAuth,
@@ -14,7 +14,7 @@ const formFields = {
 };
 
 const SingUpForm = () => {
-  
+   const {setCurrentUser} = useContext(UserContext)
   const [formState, setFormState] = useState(formFields);
   const { displayName, apellido, email, password, confirmPassword } = formState;
   const resetFormFields = () => {
@@ -95,7 +95,7 @@ const SingUpForm = () => {
           placeholder="Confirma tu clave"
           value={confirmPassword}
         ></input>
-        <button type="submit">Submit</button>
+        <button type="submit">Crea Tu Cuenta</button>
       </form>
     </div>
   );

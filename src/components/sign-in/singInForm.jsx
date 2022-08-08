@@ -1,10 +1,12 @@
 import React from "react";
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../context/user.context";
 import {
   singInWithGooglePopup,
   createUserDocumentAuth,
   signInUsingEmailAndPassword,
+  signOutUser
 } from "../../utils/firebase/firebase.utils";
 const formFields = {
   email: "",
@@ -14,9 +16,11 @@ const formFields = {
 const SingInForm = () => {
   const [formState, setFormState] = useState(formFields);
   const { email, password } = formState;
+  const {setCurrentUser, currentUser} = useContext(UserContext)
   const resetFormFields = () => {
     setFormState(formFields);
   };
+  console.log(currentUser, 'whtas this');
   const logInWithGoogle = async () => {
     const { user } = await singInWithGooglePopup();
     await createUserDocumentAuth(user);
@@ -26,8 +30,9 @@ const SingInForm = () => {
     e.preventDefault();
 
     try {
-      const response = await signInUsingEmailAndPassword(email, password);
-      console.log(response, "sing in user");
+      const user = await signInUsingEmailAndPassword(email, password);
+    
+      setCurrentUser(user)
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -49,6 +54,10 @@ const SingInForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
+  };
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
   };
   return (
     <div>
@@ -72,8 +81,14 @@ const SingInForm = () => {
           placeholder="Nueva Clave"
           value={password}
         ></input>
-
-        <button type="submit">Ingresa!</button>
+{currentUser ? (
+            <span className='nav-link' onClick={signOutHandler}>
+              Cerrar Sesion
+            </span>
+          ) : (
+             <button type="submit"> <Link to={currentUser ?  '/':'/sing-in'}>Iniciar Sesion</Link></button>
+          )}
+       
         <button onClick={logInWithGoogle}>
           Ingresa Con Tu Cuenta De Google
         </button>

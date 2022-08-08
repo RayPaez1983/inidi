@@ -47,7 +47,7 @@ const NewCards = () => {
       imageUrl: "images/foto6.jpeg",
     },
   ];
-  console.log(cardInfo, "info card aqui");
+ 
   return (
     <div className="main_container">
       <h2 className="main-tittle">LO NUEVO</h2>
