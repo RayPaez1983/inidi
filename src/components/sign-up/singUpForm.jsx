@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user.context";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentAuth,
+  signInUsingEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 const formFields = {
   displayName: "",
@@ -14,7 +16,8 @@ const formFields = {
 };
 
 const SingUpForm = () => {
-   const {setCurrentUser} = useContext(UserContext)
+  const { setCurrentUser } = useContext(UserContext);
+  let navigate = useNavigate();
   const [formState, setFormState] = useState(formFields);
   const { displayName, apellido, email, password, confirmPassword } = formState;
   const resetFormFields = () => {
@@ -33,8 +36,10 @@ const SingUpForm = () => {
         password
       );
       await createUserDocumentAuth(user, { displayName });
-
+      const userLogged = await signInUsingEmailAndPassword(email, password);
       resetFormFields();
+      setCurrentUser(userLogged);
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Usuario ya cuenta con un perfil");
