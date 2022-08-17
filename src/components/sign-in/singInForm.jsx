@@ -21,10 +21,9 @@ const SingInForm = () => {
   const resetFormFields = () => {
     setFormState(formFields);
   };
-  console.log(currentUser, 'whtas this');
   const logInWithGoogle = async () => {
-    const { user } = await singInWithGooglePopup();
-    await createUserDocumentAuth(user);
+    await singInWithGooglePopup();
+   
     
   };
   const handleSubmit = async (e) => {
@@ -33,7 +32,7 @@ const SingInForm = () => {
     try {
       const user = await signInUsingEmailAndPassword(email, password);
     
-      setCurrentUser(user)
+      
       resetFormFields();
       navigate("/");
     } catch (error) {
@@ -59,7 +58,7 @@ const SingInForm = () => {
   };
   const signOutHandler = async () => {
     await signOutUser();
-    setCurrentUser(null);
+    
   };
   return (
     <div>

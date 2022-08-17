@@ -7,11 +7,7 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./header.scss";
 
 const Header = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  const singOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
 
   const imageUrl = "images/logoIndi.jpg";
 
@@ -27,13 +23,13 @@ const Header = () => {
         <div className="head-container">
           <nav className="head-container_nav">
             <Link to="/">Inicio</Link>
-            <a onClick={singOutHandler}>Cerra Sesion</a>
+            <a onClick={signOutUser}>Cerra Sesion</a>
             <a href="#">
               Carrito <BsCartPlusFill />
             </a>
             <a>
-              {currentUser.user.providerData.length > 0
-                ? `Welcome: ${currentUser.user.email}`
+              {currentUser.providerData.length > 0
+                ? `Welcome: ${currentUser.email}`
                 : ""}
             </a>
           </nav>

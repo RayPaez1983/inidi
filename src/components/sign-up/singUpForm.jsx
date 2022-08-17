@@ -16,7 +16,7 @@ const formFields = {
 };
 
 const SingUpForm = () => {
-  const { setCurrentUser } = useContext(UserContext);
+  
   let navigate = useNavigate();
   const [formState, setFormState] = useState(formFields);
   const { displayName, apellido, email, password, confirmPassword } = formState;
@@ -38,7 +38,7 @@ const SingUpForm = () => {
       await createUserDocumentAuth(user, { displayName });
       const userLogged = await signInUsingEmailAndPassword(email, password);
       resetFormFields();
-      setCurrentUser(userLogged);
+      
       navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
