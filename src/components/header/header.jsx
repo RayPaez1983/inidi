@@ -24,9 +24,9 @@ const Header = () => {
           <nav className="head-container_nav">
             <Link to="/">Inicio</Link>
             <a onClick={signOutUser}>Cerra Sesion</a>
-            <a href="#">
+            <Link to="/shop">
               Carrito <BsCartPlusFill />
-            </a>
+            </Link>
             <a>
               {currentUser.providerData.length > 0
                 ? `Welcome: ${currentUser.email}`
