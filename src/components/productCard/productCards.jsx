@@ -7,7 +7,7 @@ import { ProductContext } from "../../context/shop.context";
 
 const ProductCard = () => {
    const {currentProduct} = useContext(ProductContext)
-      console.log( 'shop data', currentProduct); 
+      
   return (
     <div className="main_container">
       <section className="container-products">

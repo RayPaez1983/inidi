@@ -1,0 +1,14 @@
+.main-button {
+  width: 150px;
+  height: 40px;
+  background-color: linear-gradient(
+    to top,
+    rgba(223, 137, 181, 0.349) 0%,
+    rgba(191, 217, 254, 0.212) 100%
+  );
+  border: none;
+  outline: inherit;
+  border-radius: 25px;
+  box-shadow: 10px 10px 62px 21px rgba(247, 198, 247, 1);
+  cursor: pointer;
+}
