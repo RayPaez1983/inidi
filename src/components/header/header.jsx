@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/user.context";
@@ -10,9 +10,8 @@ import CartDropDown from '../cart-dropDown/cartDropDown';
 
 const Header = () => {
   const { currentUser } = useContext(UserContext);
-  const { toggleCart, setToggleCart } = useContext(ProductContext);
+  const [toggleCart, setToggleCart] = useState(false);
 
-  console.log(toggleCart, 'whats this');
 
   const imageUrl = "images/logoIndi.jpg";
 

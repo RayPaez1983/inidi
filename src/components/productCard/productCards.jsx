@@ -1,24 +1,32 @@
 import React from "react";
-import { BsCartPlusFill } from "react-icons/bs";
+import { BsCartPlusFill, BsChevronRight } from "react-icons/bs";
 import "./productCard.scss";
 import { useContext } from "react";
-import { ProductContext } from "../../context/shop.context";
-
+import { CartContext } from "../../context/cart.context";
+import Button from "../common/button/mainButton";
 
 const ProductCard = () => {
-   const {currentProduct} = useContext(ProductContext)
-      
+  const { cartCount, addItemToCart, cartItems } = useContext(CartContext);
+  console.log(cartItems, cartCount, 'smell gooood');
+   const incrementItem = (item)=>{
+      addItemToCart(item)
+   }
+  
   return (
-    <div className="main_container">
-      <section className="container-products">
-        {currentProduct.map((card) => (
-          <div className="product">
-            <img src={card.imageUrl} alt="" className="product__img"></img>
- 
+    <div >
+      <section >
+        {cartItems.map((card, index) => (
+          <div className="shop" key={index}>
+            <img src={card.imageUrl} alt="" className="shop_img" width="150" height="150"></img>
+
             <div>
-            <span className="product__price">${card.price}<BsCartPlusFill className="product__icon"/></span>
-            
+              <span className="shop__price">
+                ${card.price}
+                <BsCartPlusFill className="shop__icon" />
+              </span>
             </div>
+            <span>{card.quantity}</span>
+            <div onClick={()=>incrementItem(card)}><BsChevronRight/></div>
           </div>
         ))}
       </section>
