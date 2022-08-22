@@ -1,3 +1,6 @@
+.header-main {
+  position: relative;
+}
 header {
   background-color: linear-gradient(
     to top,
@@ -30,6 +33,10 @@ header {
     :hover {
       text-decoration: underline;
     }
+  }
+  &_cart {
+    display: flex;
+    cursor: pointer;
   }
   &_title {
     display: flex;

@@ -39,15 +39,6 @@
   color: #a351e6;
 }
 
-.product__img {
-  width: 86%;
-  height: 93%;
-  position: relative;
-  left: 7%;
-  z-index: -10;
-  border-radius: 10px;
-}
-
 .product:before {
   content: "New";
   background-color: rgba(228, 125, 178, 0.664);
@@ -74,4 +65,11 @@
   text-align: center;
   position: relative;
   left: 40%;
+}
+.no_cart-items {
+  width: 100%;
+  height: calc(100vh - 386px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
