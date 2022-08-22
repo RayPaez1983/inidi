@@ -25,7 +25,8 @@ const NewCards = () => {
               {card.description}
             </h3>
             <div>
-            <span className="product__price">{card.price}<BsCartPlusFill className="product__icon" onClick={()=>addProductToCart(card)}/></span>
+            <span className="product__price">${card.price}</span> 
+            <BsCartPlusFill className="product__icon" onClick={()=>addProductToCart(card)}/>
             
             </div>
             
