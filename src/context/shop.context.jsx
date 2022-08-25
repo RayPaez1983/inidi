@@ -1,49 +1,33 @@
 import { createContext, useState, useEffect } from "react";
-import SHOP_DATA from "../shopData/shopMockData.json";
-import PRODUCTS_DATA from "../shopData/productsMockData.json";
-
-const addCartItem = (cartItems, productToAdd) => {
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem === productToAdd.id
-  );
-  if (existingCartItem) {
-    return [
-      cartItems.map((cartItem) =>
-        cartItem.id === productToAdd.id
-          ? { ...cartItem, qty: cartItem.qty + 1 }
-          : cartItem
-      ),
-    ];
-  }
-  return [...cartItems, { ...productToAdd, qty: 1 }];
-};
+import { getCollectionData, addCollectionAndDocuments } from "../utils/firebase/firebase.utils";
+//  import SHOP_DATA from "../shopData/productsMockData.json";
 
 export const ProductContext = createContext({
   currentProduct: [],
   toggleCart: Boolean,
-  selectedProduct: [],
-  setItemsCart: () => {},
-  productData: [],
 
 });
 
 export const ProductProvider = ({ children }) => {
-  const [currentProduct, setCurrentProduct] = useState(PRODUCTS_DATA);
-  const [productData, setProductData] = useState(PRODUCTS_DATA);
+  const [currentProduct, setCurrentProduct] = useState({});
   const [toggleCart, setToggleCart] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState([]);
-
-  const addItemsCart = (productToAdd) => {
-    setSelectedProduct(addCartItem(selectedProduct, productToAdd));
-  };
-
+  // useEffect(() => {
+  //   addCollectionAndDocuments('categorias', SHOP_DATA);
+  // }, []);
+ 
+useEffect(() => {
+  const getCatMap = async ()=>{
+   const categoryMap = await getCollectionData()
+   setCurrentProduct(categoryMap)
+   console.log(categoryMap, 'categorias',currentProduct);
+  }
+ getCatMap()
+}, [])
   const value = {
     currentProduct,
     toggleCart,
     setToggleCart,
-    selectedProduct,
-    productData,
-    addItemsCart,
+   
   };
 
   return (

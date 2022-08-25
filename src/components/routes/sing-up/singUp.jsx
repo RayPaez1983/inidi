@@ -9,10 +9,10 @@ import {  Link } from "react-router-dom";
 
 const SingUp = () => {
     const logInWithGoogle = async () => {
-      console.log('click');
+      
     const { user } = await singInWithGooglePopup();
     const userDocRef = await createUserDocumentAuth(user);
-    console.log(user, "my response", userDocRef);
+    
   };
 
   return (

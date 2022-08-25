@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 const CartDropDown = () => {
   let navigate = useNavigate();
   const {cartItems} = useContext(CartContext)
-  console.log(cartItems, 'why');
 
   return (
     <div className="cartCard-container">
