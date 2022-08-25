@@ -1,32 +1,135 @@
-[
-    {
-      "id": 1,
-      "title": "Pijamas",
-      "imageUrl": "images/uno.jpg",
-      "price": 18000
-    },
-    {
-      "id": 2,
-      "title": "Batas",
-      "imageUrl": "images/batas1.jpg",
-      "price": 12000
-    },
-    {
-      "id": 3,
-      "title": "Pantuflas",
-      "imageUrl": "images/pantuflas.jpg",
-      "price": 20000
-    },
-    {
-      "id": 4,
-      "title": "Cojines",
-      "imageUrl": "images/cojines.jpg",
-      "price": 10000  
-    },
-    {
-      "id": 5,
-      "title": "mens",
-      "imageUrl": "images/uno.jpg",
-      "price": 15000
-    }
-  ]
+ [
+  {
+    "title": "Pijamas",
+    "items": [
+      {
+        "id": 1,
+        "name": "Mickey Satin",
+        "imageUrl": "images/foto1.jpeg",
+        "price": 25
+      },
+      {
+        "id": 2,
+        "name": "Heart Satin",
+        "imageUrl": "images/foto2.jpeg",
+        "price": 18
+      },
+      {
+        "id": 3,
+        "name": "Tropical Style",
+        "imageUrl": "images/foto3.jpeg",
+        "price": 35
+      },
+      {
+        "id": 4,
+        "name": "Kitty Cat",
+        "imageUrl": "images/foto4.jpeg",
+        "price": 25
+      }
+    ]
+  },
+  {
+    "title": "Batas",
+    "items": [
+      {
+        "id": 1,
+        "name": "Bata Yellow",
+        "imageUrl": "images/foto11.jpeg",
+        "price": 25
+      },
+      {
+        "id": 2,
+        "name": "Bata Pink",
+        "imageUrl": "images/foto12.jpeg",
+        "price": 18
+      },
+      {
+        "id": 3,
+        "name": "Bata Style",
+        "imageUrl": "images/foto13.jpeg",
+        "price": 35
+      },
+      {
+        "id": 4,
+        "name": "Bata Blu Start",
+        "imageUrl": "images/batas1.jpg",
+        "price": 25
+      }
+    ]
+  },
+  {
+    "title": "Pantuflas",
+    "items": [
+      {
+        "id": 1,
+        "name": "Purpura Relax",
+        "imageUrl": "images/foto15.jpeg",
+        "price": 25
+      },
+      {
+        "id": 2,
+        "name": "Pelicano Pies",
+        "imageUrl": "images/foto16.jpeg",
+        "price": 18
+      },
+      {
+        "id": 3,
+        "name": "Ovejita Pies",
+        "imageUrl": "images/foto17.jpeg",
+        "price": 35
+      },
+      {
+        "id": 4,
+        "name": "Dragion Pies",
+        "imageUrl": "images/foto18.jpeg",
+        "price": 25
+      }
+    ]
+  },
+  {
+    "title": "Cojines",
+    "items": [
+      {
+        "id": 1,
+        "name": "Mickey Satin",
+        "imageUrl": "images/foto19.jpeg",
+        "price": 25
+      },
+      {
+        "id": 2,
+        "name": "Heart Satin",
+        "imageUrl": "images/foto20.jpeg",
+        "price": 18
+      },
+      {
+        "id": 3,
+        "name": "Tropical Style",
+        "imageUrl": "images/cojines.jpg",
+        "price": 35
+      },
+      {
+        "id": 4,
+        "name": "Kitty Cat",
+        "imageUrl": "images/foto4.jpeg",
+        "price": 25
+      }
+    ]
+  },
+  {
+    "title": "Cobijas",
+    "items": [
+      {
+        "id": 1,
+        "name": "Cobija Pink",
+        "imageUrl": "images/foto21.jpeg",
+        "price": 25
+      },
+      {
+        "id": 2,
+        "name": "Cobija Blue",
+        "imageUrl": "images/foto22.jpeg",
+        "price": 18
+      }
+    ]
+  }
+]

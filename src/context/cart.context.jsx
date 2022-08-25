@@ -78,7 +78,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItemToCart = (cartItemToRemove) => {
-    console.log(cartItemToRemove, 'my item to remove');
+   
     setCartItems(removeCartItem(cartItems, cartItemToRemove));
   };
 

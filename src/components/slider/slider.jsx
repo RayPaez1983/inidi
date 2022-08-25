@@ -46,8 +46,6 @@ const HomeSlider = () => {
   if (!Array.isArray(images) || images.length <= 0) {
     return null;
   }
-
-  console.log(images, "here it is");
   return (
     <div className="slideContainer">
       <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
