@@ -13,7 +13,7 @@ const NewCards = () => {
   const addProductToCart = (item) => {
     addItemToCart(item);
   };
-  console.log(currentProduct, "currentProd");
+ 
   return (
     <div className="main_container">
      
