@@ -4,10 +4,11 @@ import { useContext } from "react";
 import { ProductContext } from "../../../context/shop.context";
 
 const Accessories = () => {
- const {productData} = useContext(ProductContext)
+ const { currentProduct } = useContext(ProductContext);
+console.log(currentProduct);
     return (
         <div>
-            <Directory categories={productData} />
+            <Directory categories={currentProduct} />
         </div>
     )
 }

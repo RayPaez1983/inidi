@@ -1,8 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import CategoryItem from "../src/components/category/catergory";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+const categories = {
+  imageUrl: "images/foto11.jpeg",
+  price: 25,
+  name: "Bata Yellow",
+  id: 1,
+};
+
+test("renders learn react link", () => {
+  render(<CategoryItem category={categories} />);
+  const linkElement = screen.getByText(/Compralo Ahora!/i);
   expect(linkElement).toBeInTheDocument();
 });

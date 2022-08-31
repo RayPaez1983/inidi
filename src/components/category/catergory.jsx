@@ -2,7 +2,7 @@ import React from "react";
 import "./categories.scss";
 
 const CategoryItem = ({ category }) => {
-
+console.log(category, 'category here');
   const { imageUrl, title } = category;
   return (
     <>
