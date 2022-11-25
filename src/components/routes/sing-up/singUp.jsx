@@ -12,7 +12,7 @@ const SingUp = () => {
       
     const { user } = await singInWithGooglePopup();
     const userDocRef = await createUserDocumentAuth(user);
-    
+
   };
 
   return (

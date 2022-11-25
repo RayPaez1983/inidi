@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user.context";
 import {
   singInWithGooglePopup,
-  createUserDocumentAuth,
   signInUsingEmailAndPassword,
-  signOutUser
+  signOutUser,
 } from "../../utils/firebase/firebase.utils";
 const formFields = {
   email: "",
@@ -17,38 +16,36 @@ const SingInForm = () => {
   let navigate = useNavigate();
   const [formState, setFormState] = useState(formFields);
   const { email, password } = formState;
-  const {setCurrentUser, currentUser} = useContext(UserContext)
+
+  const { currentUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     setFormState(formFields);
   };
   const logInWithGoogle = async () => {
     await singInWithGooglePopup();
-   
-    
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const user = await signInUsingEmailAndPassword(email, password);
-    
-      
+
       resetFormFields();
       navigate("/");
     } catch (error) {
       switch (error.code) {
-        case 'auth/wrong-password': 
-           alert('Clave Errada')
+        case "auth/wrong-password":
+          alert("Clave Errada");
           break;
-          case 'auth/user-not-found': 
-           alert('Verifica El Ususario')
+        case "auth/user-not-found":
+          alert("Verifica El Ususario");
           break;
-      
-      
+
         default:
           break;
       }
-    
+
       console.log(error);
     }
   };
@@ -58,7 +55,6 @@ const SingInForm = () => {
   };
   const signOutHandler = async () => {
     await signOutUser();
-    
   };
   return (
     <div>
@@ -82,18 +78,15 @@ const SingInForm = () => {
           placeholder="Nueva Clave"
           value={password}
         ></input>
-{currentUser ? (
-            <span className='nav-link' onClick={signOutHandler}>
-              Cerrar Sesion
-            </span>
-          ) : (
-             <button type="submit"> Iniciar Sesion</button>
-          )}
-       
-        <button onClick={logInWithGoogle}>
-          Ingresa Con Tu Cuenta De Google
-        </button>
+        {currentUser ? (
+          <span className="nav-link" onClick={signOutHandler}>
+            Cerrar Sesion
+          </span>
+        ) : (
+          <button type="submit"> Iniciar Sesion</button>
+        )}
       </form>
+      <button onClick={logInWithGoogle}>Ingresa Con Tu Cuenta De Google</button>
     </div>
   );
 };

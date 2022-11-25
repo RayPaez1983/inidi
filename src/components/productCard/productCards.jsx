@@ -24,7 +24,7 @@ const ProductCard = () => {
     if (cartCount === 0) {
       navigate("/")
     }
-   }, [cartCount])
+   }, [cartCount], navigate )
   
   return (
     <div >
