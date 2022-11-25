@@ -1,6 +1,4 @@
-
-
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useReducer } from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -51,11 +49,53 @@ export const CartContext = createContext({
   cartTotal: 0,
 });
 
+export const CART_ACTION_TYPES = {
+  SET_CART_IS_OPEN: "SET_CART_IS_OPEN",
+  SET_CART_ITEMS: "SET_CART_ITEMS",
+  SET_CART_COUNT: "SET_CART_COUNT",
+  SET_CART_TOTAL: "SET_CART_TOTAL",
+};
+export const userReducer = (state, action) => {
+  console.log(action, "user current");
+  const { type, payload } = action;
+
+  switch (type) {
+    case CART_ACTION_TYPES.SET_CART_IS_OPEN:
+      return { ...state, isCartOpen: payload };
+    case CART_ACTION_TYPES.SET_CART_ITEMS:
+      return { ...state, cartItems: payload };
+    case CART_ACTION_TYPES.SET_CART_COUNT:
+      return { ...state, cartCount: payload };
+    case CART_ACTION_TYPES.SET_CART_TOTAL:
+      return { ...state, cartTotal: payload };
+    default:
+      throw new Error(`Wrong type ${type} in userReducer`);
+  }
+};
+
+const INITIAL_STATE = {
+  isCartOpen: null,
+  cartItems: [],
+};
 export const CartProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [{ isCartOpen, cartItems, cartCount, cartTotal }, dispatch] =
+    useReducer(userReducer, INITIAL_STATE);
+
+  const setIsCartOpen = () => {
+    dispatch({
+      type: CART_ACTION_TYPES.SET_CART_IS_OPEN,
+      payload: !isCartOpen,
+    });
+  };
+  const setCartItems = (item) => {
+    dispatch({ type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: item });
+  };
+  const setCartCount = (item) => {
+    dispatch({ type: CART_ACTION_TYPES.SET_CART_COUNT, payload: item });
+  };
+  const setCartTotal = (item) => {
+    dispatch({ type: CART_ACTION_TYPES.SET_CART_TOTAL, payload: item });
+  };
 
   useEffect(() => {
     const newCartCount = cartItems.reduce(
@@ -78,7 +118,6 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItemToCart = (cartItemToRemove) => {
-   
     setCartItems(removeCartItem(cartItems, cartItemToRemove));
   };
 

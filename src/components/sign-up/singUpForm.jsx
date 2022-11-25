@@ -16,13 +16,14 @@ const formFields = {
 };
 
 const SingUpForm = () => {
-  
   let navigate = useNavigate();
   const [formState, setFormState] = useState(formFields);
   const { displayName, apellido, email, password, confirmPassword } = formState;
+
   const resetFormFields = () => {
     setFormState(formFields);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -38,7 +39,6 @@ const SingUpForm = () => {
       await createUserDocumentAuth(user, { displayName });
       const userLogged = await signInUsingEmailAndPassword(email, password);
       resetFormFields();
-      
       navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -47,14 +47,17 @@ const SingUpForm = () => {
       console.log(error, "error");
     }
   };
+
   const handleChange = (e) => {
+  
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
   };
+
   return (
     <div>
       <h1>Sing up with email and paswword</h1>
-      <form onSubmit={handleSubmit} className="container-singIn">
+      <form onSubmit={handleSubmit} className="container-up">
         <label>Nombre</label>
         <input
           required
