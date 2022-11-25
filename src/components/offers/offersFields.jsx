@@ -1,11 +1,11 @@
 import React from "react";
-import './offers.scss'
+import "./offers.scss";
 
 const OffersFields = () => {
   return (
     <div className="container_dos">
-       <div className="articulos">
-        <div className="secciones">
+      <div className="articulos">
+        {/* <div className="secciones">
           <img src="images/foto15.jpeg" alt="" className="container_img" />
 
           <img src="images/pantuflas.jpg" alt="" className="container_img" />
@@ -32,15 +32,14 @@ const OffersFields = () => {
           <img src="images/foto10.jpeg" alt="" className="container_img" />
 
           <img src="images/foto22.jpeg" alt="" className="container_img" />
-        </div>
-         
+        </div> */}
       </div>
       <div className="menu-secundario">
-                <a href="">Babuchas</a>
-                <a href="">Batas</a>
-                <a href="">Cojines</a>
-                <a href="">Cobijas</a>
-            </div>
+        <a href="">Babuchas</a>
+        <a href="">Batas</a>
+        <a href="">Cojines</a>
+        <a href="">Cobijas</a>
+      </div>
     </div>
   );
 };

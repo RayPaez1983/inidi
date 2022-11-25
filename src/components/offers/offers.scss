@@ -1,6 +1,10 @@
 .container-offers {
   display: flex;
   justify-content: center;
+  img{
+    width:100%;
+  }
+
 }
 .container_img {
   width: 300px;
@@ -25,7 +29,7 @@
 }
 
 .articulos {
-  width: 80%;
+ 
   border-right: 2px solid #df89b5;
 }
 

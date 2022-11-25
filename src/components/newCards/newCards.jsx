@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cart.context";
 import { ProductContext } from "../../context/shop.context";
 
-
 const NewCards = () => {
   const { addItemToCart } = useContext(CartContext);
   const { currentProduct } = useContext(ProductContext);
@@ -13,13 +12,12 @@ const NewCards = () => {
   const addProductToCart = (item) => {
     addItemToCart(item);
   };
- 
+
   return (
     <div className="main_container">
-     
-        {Object.keys(currentProduct).map((title) => (
-          <>
-          <h1>{title}</h1>
+      {Object.keys(currentProduct).map((title) => (
+        <>
+          {/* <h1>{title}</h1>
            <section className="container-products">
           {currentProduct[title].map((item)=>(   <div className="product">
             <img
@@ -40,10 +38,9 @@ const NewCards = () => {
               />
             </div>
           </div>))
-       }</section>
-          </>
-        ))}
-      
+       }</section> */}
+        </>
+      ))}
     </div>
   );
 };
