@@ -17,28 +17,22 @@ const NewCards = () => {
     <div className="main_container">
       {Object.keys(currentProduct).map((title) => (
         <>
-          {/* <h1>{title}</h1>
-           <section className="container-products">
-          {currentProduct[title].map((item)=>(   <div className="product">
-            <img
-              src={item.imageUrl}
-              alt=""
-              className="product__img"
-            ></img>
-            <h3 className="product__tittle">
-              {item.name}
-            </h3>
-            <div>
-              <span className="product__price">
-                ${item.price}
-              </span>
-              <BsCartPlusFill
-                className="product__icon"
-                onClick={() => addProductToCart(item)}
-              />
-            </div>
-          </div>))
-       }</section> */}
+          <h1>{title}</h1>
+          <section className="container-products">
+            {currentProduct[title].map((item) => (
+              <div className="product">
+                <img src={item.imageUrl} alt="" className="product__img"></img>
+                <h3 className="product__tittle">{item.name}</h3>
+                <div>
+                  <span className="product__price">${item.price}</span>
+                  <BsCartPlusFill
+                    className="product__icon"
+                    onClick={() => addProductToCart(item)}
+                  />
+                </div>
+              </div>
+            ))}
+          </section>
         </>
       ))}
     </div>
