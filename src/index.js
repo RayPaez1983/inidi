@@ -7,19 +7,23 @@ import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./context/user.context";
 import { ProductProvider } from "./context/shop.context";
 import { CartProvider } from "./context/cart.context";
+import { Provider } from "react-redux";
+import {store} from "./store/store"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
-      <UserProvider>
+     
         <ProductProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </ProductProvider>
-      </UserProvider>
+      
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

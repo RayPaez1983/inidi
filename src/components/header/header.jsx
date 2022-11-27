@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/user.context";
 import { ProductContext } from "../../context/shop.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import CartIcon from "../cart-icon/cartIcon";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./header.scss";
+import { useSelector } from "react-redux";
 import CartDropDown from "../cart-dropDown/cartDropDown";
 
 const Header = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const [toggleCart, setToggleCart] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 768;
