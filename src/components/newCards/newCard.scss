@@ -1,3 +1,6 @@
+$small: 786px;
+$medium: 1050px;
+
 .container {
   background-color: #ffffff;
   opacity: 1;
@@ -27,6 +30,10 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 60px;
   margin-bottom: 100px;
+  @media screen and (max-width: $small) {
+    display: block;
+    
+  }
 }
 
 .product {

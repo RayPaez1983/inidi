@@ -1,3 +1,6 @@
+
+$small: 780px;
+$medium: 1050px;
 .header-main {
   position: relative;
 }
@@ -20,14 +23,28 @@ header {
   color: #df89b5;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: $small) {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    padding: 10px;
+    font-size: 16px;
+    
+  }
+
   &_nav {
     display: flex;
     justify-content: flex-end;
+    column-gap: 20px;
     font-size: 20px;
+    @media screen and (max-width: $small) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
     a {
       text-decoration: none;
       color: #df89b5;
-      padding-right: 37px;
+  
       text-align: center;
     }
     :hover {
