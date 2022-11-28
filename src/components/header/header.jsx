@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../../context/user.context";
-import { ProductContext } from "../../context/shop.context";
+import { FaHamburger } from "react-icons/fa";
+import { CartContext } from "../../context/cart.context";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import CartIcon from "../cart-icon/cartIcon";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
@@ -11,6 +10,8 @@ import { useSelector } from "react-redux";
 import CartDropDown from "../cart-dropDown/cartDropDown";
 
 const Header = () => {
+  const { setMenuIsOpen, isMenuOpen } = useContext(CartContext);
+  console.log(isMenuOpen, "is open");
   const currentUser = useSelector(selectCurrentUser);
   const [toggleCart, setToggleCart] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
@@ -38,21 +39,47 @@ const Header = () => {
       >
         {currentUser ? (
           <div className="head-container">
-            <nav className="head-container_nav">
-              <Link to="/">Inicio</Link>
-              <a onClick={signOutUser}>Cerra Sesion</a>
-              <a
-                onClick={() => setToggleCart(!toggleCart)}
-                className="head-container_cart"
-              >
-                Carrito <CartIcon />
-              </a>
-              <a>
-                {currentUser.providerData.length > 0
-                  ? `Welcome: ${currentUser.email}`
-                  : ""}
-              </a>
-            </nav>
+            {width > breakpoint ? (
+              <nav className="head-container_nav">
+                <Link to="/">Inicio</Link>
+                <a onClick={signOutUser}>Cerra Sesion</a>
+                <a
+                  onClick={() => setToggleCart(!toggleCart)}
+                  className="head-container_cart"
+                >
+                  Carrito <CartIcon />
+                </a>
+                <a>
+                  {currentUser.providerData.length > 0
+                    ? `Welcome: ${currentUser.email}`
+                    : ""}
+                </a>
+              </nav>
+            ) : (
+              <>
+                <FaHamburger
+                  style={{ fontSize: "24px" }}
+                  onClick={() => setMenuIsOpen()}
+                />
+                {isMenuOpen ? (
+                  <nav className="head-container_nav">
+                    <Link to="/">Inicio</Link>
+                    <a onClick={signOutUser}>Cerra Sesion</a>
+                    <a
+                      onClick={() => setToggleCart(!toggleCart)}
+                      className="head-container_cart"
+                    >
+                      Carrito <CartIcon />
+                    </a>
+                    <a>
+                      {currentUser.providerData.length > 0
+                        ? `Welcome: ${currentUser.email}`
+                        : ""}
+                    </a>
+                  </nav>
+                ) : null}
+              </>
+            )}
             <div className="head-container_title">
               <img
                 src={imageUrl}
@@ -64,16 +91,38 @@ const Header = () => {
           </div>
         ) : (
           <div className="head-container">
-            <nav className="head-container_nav">
-              <Link to="/">Inicio</Link>
-              <Link to="/sing-in"> Iniciar Sesion</Link>
-              <a
-                onClick={() => setToggleCart(!toggleCart)}
-                className="head-container_cart"
-              >
-                Carrito <CartIcon />
-              </a>
-            </nav>
+            {width > breakpoint ? (
+              <nav className="head-container_nav">
+                <Link to="/">Inicio</Link>
+                <Link to="/sing-in"> Iniciar Sesion</Link>
+                <a
+                  onClick={() => setToggleCart(!toggleCart)}
+                  className="head-container_cart"
+                >
+                  Carrito <CartIcon />
+                </a>
+              </nav>
+            ) : (
+              <>
+                <FaHamburger
+                  style={{ fontSize: "24px" }}
+                  onClick={() => setMenuIsOpen()}
+                />
+                {isMenuOpen ? (
+                  <nav className="head-container_nav">
+                    <Link to="/">Inicio</Link>
+                    <Link to="/sing-in"> Iniciar Sesion</Link>
+                    <a
+                      onClick={() => setToggleCart(!toggleCart)}
+                      className="head-container_cart"
+                    >
+                      Carrito <CartIcon />
+                    </a>
+                  </nav>
+                ) : null}
+              </>
+            )}
+
             <div className="head-container_title">
               <img
                 src={imageUrl}

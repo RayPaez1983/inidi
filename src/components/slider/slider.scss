@@ -1,11 +1,22 @@
+$xsmall: 380px;
+$small: 780px;
+$medium: 1050px;
 .slideContainer {
-  height: 80vh;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffffff;
   opacity: 1;
   background-image: radial-gradient(#fa34f08e 1.05px, transparent 1.05px),
     radial-gradient(#fa34f08e 1.05px, #ffffff 1.05px);
   background-size: 42px 42px;
   background-position: 0 0, 21px 21px;
+  @media screen and (max-width: $small) {
+    height: 30vh;
+    
+  }
 }
 
 .image {
@@ -15,9 +26,7 @@
 }
 
 .right-arrow {
-  position: absolute;
-  bottom: 30%;
-  right: 25%;
+
   font-size: 3rem;
   color: rgba(223, 137, 181, 0.719);
   z-index: 10;
@@ -26,9 +35,7 @@
 }
 
 .left-arrow {
-  position: absolute;
-  bottom: 30%;
-  left: 25%;
+ 
   font-size: 3rem;
   color: rgba(223, 137, 181, 0.719);
   z-index: 10;

@@ -31,13 +31,12 @@ const HomeSlider = () => {
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-
   };
- 
+
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
- useEffect(() => {
+  useEffect(() => {
     setInterval(() => {
       setCurrent(current === length - 1 ? 0 : current + 1);
     }, 5000);
@@ -49,14 +48,22 @@ const HomeSlider = () => {
   return (
     <div className="slideContainer">
       <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+
       {images.map(({ id, title, imageUrl }) => {
         return (
           <div className={id === current ? "slide active" : "slide"} key={id}>
-            {id === current && <img src={imageUrl} key={id} alt={title} className="imageSlider"/>}
+            {id === current && (
+              <img
+                src={imageUrl}
+                key={id}
+                alt={title}
+                className="imageSlider"
+              />
+            )}
           </div>
         );
       })}
+      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
     </div>
   );
 };
