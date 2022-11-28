@@ -40,6 +40,7 @@ const clearCartItem = (cartItems, cartItemToClear) =>
 
 export const CartContext = createContext({
   isCartOpen: false,
+  isMenuOpen: false,
   setIsCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
@@ -52,6 +53,7 @@ export const CartContext = createContext({
 export const CART_ACTION_TYPES = {
   SET_CART_IS_OPEN: "SET_CART_IS_OPEN",
   SET_CART_ITEMS: "SET_CART_ITEMS",
+  SET_MENU_OPEN: "SET_MENU_OPEN",
 };
 export const cartReducer = (state, action) => {
   console.log(action, "user current");
@@ -62,7 +64,8 @@ export const cartReducer = (state, action) => {
       return { ...state, isCartOpen: payload };
     case CART_ACTION_TYPES.SET_CART_ITEMS:
       return { ...state, ...payload };
-
+    case CART_ACTION_TYPES.SET_MENU_OPEN:
+      return { ...state, ...payload };
     default:
       throw new Error(`Wrong type ${type} in userReducer`);
   }
@@ -70,18 +73,27 @@ export const cartReducer = (state, action) => {
 
 const INITIAL_STATE = {
   isCartOpen: null,
+  isMenuOpen: false,
   cartItems: [],
   cartCount: 0,
   cartTotal: 0,
 };
 export const CartProvider = ({ children }) => {
-  const [{ isCartOpen, cartItems, cartCount, cartTotal }, dispatch] =
-    useReducer(cartReducer, INITIAL_STATE);
+  const [
+    { isCartOpen, cartItems, cartCount, cartTotal, isMenuOpen },
+    dispatch,
+  ] = useReducer(cartReducer, INITIAL_STATE);
 
   const setIsCartOpen = () => {
     dispatch({
       type: CART_ACTION_TYPES.SET_CART_IS_OPEN,
       payload: !isCartOpen,
+    });
+  };
+  const setMenuIsOpen = () => {
+    dispatch({
+      type: CART_ACTION_TYPES.SET_MENU_OPEN,
+      payload: { isMenuOpen: !isMenuOpen },
     });
   };
 
@@ -125,6 +137,8 @@ export const CartProvider = ({ children }) => {
     addItemToCart,
     removeItemToCart,
     clearItemFromCart,
+    setMenuIsOpen,
+    isMenuOpen,
     cartItems,
     cartCount,
     cartTotal,
