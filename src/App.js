@@ -14,8 +14,11 @@ import { useDispatch } from "react-redux";
 import {
   onAuthStateChangedListener,
   createUserDocumentAuth,
+  getCollectionData
 } from "./utils/firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.action";
+import {setCategoriesMapAction} from "./store/categories/category.action"
+
 
 
 const App = () => {
@@ -29,8 +32,17 @@ const App = () => {
     });
     return unSubscribe;
   }, []);
-
+  useEffect(() => {
+    const getCatMap = async ()=>{
+     const categoryMap = await getCollectionData()
+     dispatch( setCategoriesMapAction(categoryMap))
+     console.log(categoryMap, 'categorias');
+    }
+   getCatMap()
+  }, [])
+ 
   return (
+ 
     <Routes>
       <Route path="/" element={<NavMenu />}>
         <Route index element={<Home />} />
@@ -44,6 +56,7 @@ const App = () => {
         <Route path="shop" element={<Shop />} />
       </Route>
     </Routes>
+   
   );
 };
 

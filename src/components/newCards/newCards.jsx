@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 const NewCards = () => {
   const { addItemToCart } = useContext(CartContext);
   const categoriesMap = useSelector(categoriesSelector);
-
+  console.log(Object.keys(categoriesMap), "in estable");
   const addProductToCart = (item) => {
     addItemToCart(item);
   };
