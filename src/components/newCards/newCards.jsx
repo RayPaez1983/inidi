@@ -3,11 +3,12 @@ import { BsCartPlusFill } from "react-icons/bs";
 import "./newCard.scss";
 import { useContext } from "react";
 import { CartContext } from "../../context/cart.context";
-import { ProductContext } from "../../context/shop.context";
+import { categoriesSelector } from "../../store/categories/category.selector";
+import { useSelector } from "react-redux";
 
 const NewCards = () => {
   const { addItemToCart } = useContext(CartContext);
-  const { currentProduct } = useContext(ProductContext);
+  const categoriesMap = useSelector(categoriesSelector);
 
   const addProductToCart = (item) => {
     addItemToCart(item);
@@ -15,11 +16,11 @@ const NewCards = () => {
 
   return (
     <div className="main_container">
-      {Object.keys(currentProduct).map((title) => (
+      {Object.keys(categoriesMap).map((title) => (
         <>
           <h1>{title}</h1>
           <section className="container-products">
-            {currentProduct[title].map((item) => (
+            {categoriesMap[title].map((item) => (
               <div className="product">
                 <img src={item.imageUrl} alt="" className="product__img"></img>
                 <h3 className="product__tittle">{item.name}</h3>

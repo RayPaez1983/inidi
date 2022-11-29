@@ -15,7 +15,7 @@ const Header = () => {
   const currentUser = useSelector(selectCurrentUser);
   const [toggleCart, setToggleCart] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
-  const breakpoint = 768;
+  const breakpoint = 786;
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
     // subscribe to window resize event "onComponentDidMount"
@@ -51,12 +51,12 @@ const Header = () => {
                 </a>
                 <a>
                   {currentUser.providerData.length > 0
-                    ? `Welcome: ${currentUser.email}`
-                    : ""}
+                    ? currentUser.email
+                    : null}
                 </a>
               </nav>
             ) : (
-              <>
+              <div className="responsive__menu">
                 <FaHamburger
                   style={{ fontSize: "24px" }}
                   onClick={() => setMenuIsOpen()}
@@ -73,12 +73,12 @@ const Header = () => {
                     </a>
                     <a>
                       {currentUser.providerData.length > 0
-                        ? `Welcome: ${currentUser.email}`
-                        : ""}
+                        ? currentUser.email
+                        : null}
                     </a>
                   </nav>
                 ) : null}
-              </>
+              </div>
             )}
             <div className="head-container_title">
               <img
@@ -86,7 +86,7 @@ const Header = () => {
                 alt="logoIndi"
                 className="head-container_title_img"
               />
-              {width > breakpoint ? <h1>PIJAMAS</h1> : null}
+              {!isMenuOpen || width > breakpoint ? <h1>PIJAMAS</h1> : null}
             </div>
           </div>
         ) : (
@@ -103,7 +103,7 @@ const Header = () => {
                 </a>
               </nav>
             ) : (
-              <>
+              <div className="head-container_responsive__menu">
                 <FaHamburger
                   style={{ fontSize: "24px" }}
                   onClick={() => setMenuIsOpen()}
@@ -120,7 +120,7 @@ const Header = () => {
                     </a>
                   </nav>
                 ) : null}
-              </>
+              </div>
             )}
 
             <div className="head-container_title">
@@ -129,7 +129,7 @@ const Header = () => {
                 alt="logoIndi"
                 className="head-container_title_img"
               />
-              {width > breakpoint ? <h1>PIJAMAS</h1> : null}
+              {!isMenuOpen || width > breakpoint ? <h1>PIJAMAS</h1> : null}
             </div>
           </div>
         )}

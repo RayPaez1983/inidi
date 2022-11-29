@@ -1,6 +1,4 @@
-
-
-$xsmall: 380px;
+$xsmall: 386px;
 $small: 780px;
 $medium: 1050px;
 .header-main {
@@ -28,9 +26,9 @@ header {
   @media screen and (max-width: $small) {
     flex-direction: row-reverse;
     justify-content: space-between;
-    padding: 10px 20px;
+
+    padding: 10px 20px 10px 20px;
     font-size: 16px;
-    
   }
 
   &_nav {
@@ -40,14 +38,17 @@ header {
     font-size: 20px;
     @media screen and (max-width: $small) {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-evenly;
     }
     a {
       text-decoration: none;
       color: #df89b5;
-  
+
       text-align: center;
+      @media screen and (max-width: $small) {
+        text-align: right;
+      }
     }
     :hover {
       text-decoration: underline;
@@ -63,11 +64,25 @@ header {
     align-items: center;
     font-size: 40px;
     letter-spacing: 10px;
+    @media screen and (max-width: $small) {
+      font-size: 18px;
+      letter-spacing: 0px;
+    }
     &_img {
       width: 150px;
       height: 150px;
       margin-right: 5%;
       border-radius: 100%;
+      @media screen and (max-width: $small) {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
+}
+.responsive__menu {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  padding-right: 5px;
 }
