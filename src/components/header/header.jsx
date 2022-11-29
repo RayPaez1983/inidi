@@ -11,7 +11,7 @@ import CartDropDown from "../cart-dropDown/cartDropDown";
 
 const Header = () => {
   const { setMenuIsOpen, isMenuOpen } = useContext(CartContext);
-  console.log(isMenuOpen, "is open");
+
   const currentUser = useSelector(selectCurrentUser);
   const [toggleCart, setToggleCart] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
