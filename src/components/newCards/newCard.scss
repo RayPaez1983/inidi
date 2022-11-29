@@ -1,13 +1,14 @@
+$xsmall: 380px;
 $small: 786px;
 $medium: 1050px;
 
-.container {
-  background-color: #ffffff;
-  opacity: 1;
-  background-image: radial-gradient(#fa34f08e 1.05px, transparent 1.05px),
-    radial-gradient(#fa34f08e 1.05px, #ffffff 1.05px);
-  background-size: 42px 42px;
-  background-position: 0 0, 21px 21px;
+.main_container {
+  text-align: left;
+  padding-left: 10px;
+  @media screen and (max-width: $small) {
+    text-align: center;
+    padding-left: 0;
+  }
 }
 
 /*ESTILOS DE PRODUCTOS*/
@@ -31,8 +32,9 @@ $medium: 1050px;
   grid-gap: 60px;
   margin-bottom: 100px;
   @media screen and (max-width: $small) {
-    display: block;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -41,6 +43,11 @@ $medium: 1050px;
   padding: 20px;
   padding-right: 20px;
   border-radius: 15px;
+  @media screen and (max-width: $small) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .product__icon {
   color: #a351e6;
@@ -50,7 +57,6 @@ $medium: 1050px;
 .product__img {
   width: 86%;
   height: 93%;
-;
   z-index: -10;
   border-radius: 10px;
 }
@@ -66,6 +72,12 @@ $medium: 1050px;
   z-index: 10;
   font-size: 25px;
   letter-spacing: 2px;
+  @media screen and (max-width: $small) {
+    left: 56px;
+  }
+  @media screen and (max-width: $xsmall) {
+    left: 40px;
+  }
 }
 
 .product__tittle {
@@ -79,5 +91,4 @@ $medium: 1050px;
   font: normal normal 400 16px "Futura Std", sans-serif;
   line-height: 30px;
   text-align: center;
- 
 }

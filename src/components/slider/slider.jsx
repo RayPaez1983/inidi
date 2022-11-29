@@ -40,7 +40,7 @@ const HomeSlider = () => {
     setInterval(() => {
       setCurrent(current === length - 1 ? 0 : current + 1);
     }, 5000);
-  }, []);
+  }, [images.length]);
 
   if (!Array.isArray(images) || images.length <= 0) {
     return null;
@@ -50,6 +50,7 @@ const HomeSlider = () => {
       <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
 
       {images.map(({ id, title, imageUrl }) => {
+        console.log(imageUrl, "la chimba");
         return (
           <div className={id === current ? "slide active" : "slide"} key={id}>
             {id === current && (

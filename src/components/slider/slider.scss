@@ -3,7 +3,7 @@ $small: 780px;
 $medium: 1050px;
 .slideContainer {
   width: 100vw;
-  height: 50vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,8 +13,8 @@ $medium: 1050px;
     radial-gradient(#fa34f08e 1.05px, #ffffff 1.05px);
   background-size: 42px 42px;
   background-position: 0 0, 21px 21px;
-  @media screen and (max-width: $small) {
-    height: 30vh;
+  @media screen and (max-width: $xsmall) {
+    height: 40vh;
     
   }
 }
@@ -23,6 +23,8 @@ $medium: 1050px;
   width: 1000px;
   height: 600px;
   border-radius: 10px;
+  position: relative;
+  z-index: -20;
 }
 
 .right-arrow {

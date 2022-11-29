@@ -1,11 +1,13 @@
+$xsmall: 386px;
+$small: 780px;
+$medium: 1050px;
 .dos {
-  float: left;
-width: 100%;
+  width: 100%;
   text-align: center;
   list-style-type: none;
   font-size: 23px;
   background: #df89b5;
-  
+
   transition: 0.3s ease all;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
@@ -13,25 +15,31 @@ width: 100%;
 }
 
 .dos .wrap {
- 
   transition: 0.4s ease all;
 }
 
 .tres {
+  width: 100%;
   display: inline-block;
 }
 
 nav li {
   display: inline-flex;
 }
+.tres ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 0;
+}
 
 .tres a {
   text-decoration: none;
   color: #fff;
-  padding: 10px;
-  width: 150px;
   display: block;
   transition: 0.2s ease all;
+  @media screen and (max-width: $small) {
+    font-size: 14px;
+  }
 }
 
 nav li :hover {
