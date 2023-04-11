@@ -1,26 +1,26 @@
-import React from "react";
-import { BsCartPlusFill } from "react-icons/bs";
-import "./newCard.scss";
-import { useContext } from "react";
-import { CartContext } from "../../context/cart.context";
-import { categoriesSelector } from "../../store/categories/category.selector";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { BsCartPlusFill } from 'react-icons/bs';
+import './newCard.scss';
+import { useContext } from 'react';
+import { CartContext } from '../../context/cart.context';
+import { categoriesSelector } from '../../store/categories/category.selector';
+import { ProductContext } from '../../context/shop.context';
+import { useSelector } from 'react-redux';
 
 const NewCards = () => {
   const { addItemToCart } = useContext(CartContext);
-  const categoriesMap = useSelector(categoriesSelector);
-  console.log(Object.keys(categoriesMap), "in estable");
+  const { currentProduct } = useContext(ProductContext);
   const addProductToCart = (item) => {
     addItemToCart(item);
   };
-
+  console.log(Object.keys(currentProduct), 'in estable');
   return (
     <div className="main_container">
-      {Object.keys(categoriesMap).map((title) => (
+      {Object.keys(currentProduct).map((title) => (
         <>
           <h1>{title}</h1>
           <section className="container-products">
-            {categoriesMap[title].map((item) => (
+            {currentProduct[title].map((item) => (
               <div className="product">
                 <img src={item.imageUrl} alt="" className="product__img"></img>
                 <h3 className="product__tittle">{item.name}</h3>

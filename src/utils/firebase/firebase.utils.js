@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithRedirect,
@@ -9,7 +9,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "firebase/auth";
+} from 'firebase/auth';
 import {
   getFirestore,
   doc,
@@ -19,25 +19,25 @@ import {
   writeBatch,
   query,
   getDocs,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCHljNivPE9FcH0NM4nGMVu_ZsxxwOH2D0",
-  authDomain: "indipijamas.firebaseapp.com",
-  projectId: "indipijamas",
-  storageBucket: "indipijamas.appspot.com",
-  messagingSenderId: "463442057391",
-  appId: "1:463442057391:web:ee71a405fa140722359c5a",
+  apiKey: 'AIzaSyCHljNivPE9FcH0NM4nGMVu_ZsxxwOH2D0',
+  authDomain: 'indipijamas.firebaseapp.com',
+  projectId: 'indipijamas',
+  storageBucket: 'indipijamas.appspot.com',
+  messagingSenderId: '463442057391',
+  appId: '1:463442057391:web:ee71a405fa140722359c5a',
 };
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 googleProvider.getCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const auth = getAuth();
@@ -61,16 +61,15 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("done");
+  console.log('done');
 };
 
 export const getCollectionData = async () => {
-  const collectionData = collection(db, "categorias");
+  const collectionData = collection(db, 'categorias');
   const q = query(collectionData);
 
   const querySnapShot = await getDocs(q);
   const categoriesGet = querySnapShot.docs.reduce((acc, docSnapshot) => {
-    console.log(docSnapshot.data(), "dics");
     const { title, items } = docSnapshot.data();
     acc[title.toLowerCase()] = items;
     return acc;
@@ -78,10 +77,11 @@ export const getCollectionData = async () => {
 
   return categoriesGet;
 };
+console.log(getCollectionData, 'dics');
 
 export const createUserDocumentAuth = async (userAuth, additionalInfo = {}) => {
   if (!userAuth) return;
-  const useDocRef = doc(db, "users", userAuth.uid);
+  const useDocRef = doc(db, 'users', userAuth.uid);
   const userSnapShot = await getDoc(useDocRef);
   if (!userSnapShot.exists()) {
     const { displayName, email } = userAuth;
@@ -94,7 +94,7 @@ export const createUserDocumentAuth = async (userAuth, additionalInfo = {}) => {
         ...additionalInfo,
       });
     } catch (error) {
-      console.log("error", error.message);
+      console.log('error', error.message);
     }
   }
   return useDocRef;
